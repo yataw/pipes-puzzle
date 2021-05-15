@@ -1,0 +1,22 @@
+
+// FONT
+$default-font-size: 1.4rem;
+
+$font-size-small: 1.2rem;
+$font-size-medium: 1.7rem;
+$font-size-big: 2.0rem;
+
+$default-font-family: 'Roboto', sans-serif;
+
+// COLORS
+$color-primary-light: #7986cb;
+$color-primary-main: #3f51b5;
+$color-primary-dark: #303f9f;
+$color-primary-contrastText: #fff;
+
+:export{
+    colorPrimaryLight: $color-primary-light;
+    colorPrimaryMain: $color-primary-main;
+    colorPrimaryDark: $color-primary-dark;
+    colorPrimaryContrastText: $color-primary-contrastText;
+}

@@ -3,10 +3,8 @@ import {MakeStore, createWrapper, Context, HYDRATE} from 'next-redux-wrapper';
 import {reducers} from 'reducers';
 
 declare module 'store' {
-    interface Actions {
-    }
+    interface Actions {}
 }
-
 
 // TODO : @yataw : 5/15/21 : remove to global types file
 declare global {
@@ -37,9 +35,9 @@ const rootReducer = (state: State | undefined, action: Action | HydrateActionTyp
 };
 
 const composeEnhancers =
-    typeof window === 'object' &&
-    (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && process.env.NODE_ENV !== 'production') ?
-        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
+    typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && process.env.NODE_ENV !== 'production'
+        ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+        : compose;
 
 const makeStore: MakeStore<State> = (_: Context) => createStore(rootReducer, composeEnhancers());
 

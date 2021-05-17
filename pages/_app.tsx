@@ -1,4 +1,4 @@
-import type {AppProps} from 'next/app'
+import type {AppProps} from 'next/app';
 import {wrapper} from 'store';
 import {Layout} from 'components/Layout';
 import 'public/styles/global.scss';
@@ -34,6 +34,6 @@ const App = ({Component, pageProps}: AppProps) => {
             </ThemeProvider>
         </AppContext.Provider>
     );
-}
+};
 
 export default wrapper.withRedux(App);

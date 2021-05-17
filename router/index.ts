@@ -1,6 +1,7 @@
 export const routes = {
-    Home: '/',
+    Root: '/',
     CLI: '/cli',
     GUI: '/gui',
+    Explore: '/explore',
     about: '/about',
 };

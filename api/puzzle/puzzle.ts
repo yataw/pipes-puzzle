@@ -1,3 +1,1 @@
-export class Puzzle {
-
-}
+export class Puzzle {}

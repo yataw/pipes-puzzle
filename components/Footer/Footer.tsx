@@ -1,14 +1,17 @@
-import styles from './Footer.module.scss'
+import styles from './Footer.module.scss';
+import {Divider} from '@material-ui/core';
+import React, {FC} from 'react';
 
-export const Footer = () => {
+type Props = {
+    className?: string;
+};
+
+export const Footer: FC<Props> = ({className}) => {
     return (
-        <footer>
-            <hr/>
-            <div className={styles.footer}>
-                <div>
-                    {new Date().getFullYear()} «@yataw»
-                </div>
-            </div>
+        <footer className={className}>
+            <Divider />
+
+            <div className={styles.footer}>{`${new Date().getFullYear()} @yataw`}</div>
         </footer>
     );
 };

@@ -5,4 +5,4 @@ export const theme = createMuiTheme({
         fontSize: 14,
         htmlFontSize: 10,
     },
-})
+});

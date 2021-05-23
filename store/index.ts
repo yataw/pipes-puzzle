@@ -1,6 +1,8 @@
-import {createStore, compose, combineReducers} from 'redux';
+import {createStore, compose, combineReducers, applyMiddleware} from 'redux';
 import {MakeStore, createWrapper, Context, HYDRATE} from 'next-redux-wrapper';
 import {reducers} from 'reducers';
+import thunk, {ThunkAction} from 'redux-thunk';
+import {AppContextType} from 'components/AppContext';
 
 declare module 'store' {
     interface Actions {}
@@ -16,6 +18,7 @@ declare global {
 export type Action = ValueOf<Actions>;
 export type Reducer<S = State, A = Action> = (state: S | undefined, action: A) => S;
 export type State = ReturnType<typeof reducer>;
+export type Thunk<R, S = State> = ThunkAction<R, S, AppContextType, Action>;
 
 export const reducer = combineReducers(reducers);
 
@@ -39,6 +42,8 @@ const composeEnhancers =
         ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
         : compose;
 
-const makeStore: MakeStore<State> = (_: Context) => createStore(rootReducer, composeEnhancers());
+export const getStoreWrapper = (ctx: AppContextType) => {
+    const makeStore: MakeStore<State> = (_: Context) => createStore(rootReducer, composeEnhancers(applyMiddleware(thunk.withExtraArgument(ctx))));
 
-export const wrapper = createWrapper<State>(makeStore);
+    return createWrapper<State>(makeStore);
+}

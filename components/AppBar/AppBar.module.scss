@@ -1,0 +1,13 @@
+
+.level {
+    display: flex;
+    margin: 10px 20px;
+
+    &Input{
+        width: 80px;
+    }
+    &Btn {
+        background-color: orangered;
+        margin-left: 10px;
+    }
+}

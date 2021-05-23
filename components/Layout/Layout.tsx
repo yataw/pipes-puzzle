@@ -1,7 +1,10 @@
 import styles from './Layout.module.scss';
-import {FC, ReactElement} from 'react';
+import {FC, ReactElement, useLayoutEffect} from 'react';
 import Head from 'next/head';
 import {AppBar} from 'components/AppBar';
+import {useSelector} from 'react-redux';
+import {useAppContext} from 'hooks/useAppContext';
+import {pageSelector} from 'selectors/page';
 
 type Props = {
     children: ReactElement;
@@ -9,8 +12,17 @@ type Props = {
 };
 
 export const Layout: FC<Props> = ({children, title = '@yataw | Pipes puzzle'}) => {
-    return (
+    const ctx = useAppContext();
 
+    const {level} = useSelector(pageSelector);
+
+    useLayoutEffect(() => {
+        // initialise api before all other effects
+        ctx.puzzleApi.init();
+        ctx.puzzleApi.setLevel(level);
+    }, [ctx, level]);
+
+    return (
         <div className={styles.page}>
             <Head>
                 <title>{title}</title>

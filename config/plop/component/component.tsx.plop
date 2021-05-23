@@ -1,0 +1,12 @@
+import styles from './{{properCase componentName}}.module.scss'
+import {FC} from 'react';
+
+type Props = {
+    
+};
+
+export const {{pascalCase componentName}}: FC<Props> = (props) => {
+    return (
+        
+    );
+};

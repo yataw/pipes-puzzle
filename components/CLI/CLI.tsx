@@ -1,3 +1,7 @@
+import {Terminal} from 'components/Terminal';
+
 export const CLI = () => {
-    return <div>cli</div>;
+    return (
+        <Terminal/>
+    );
 };

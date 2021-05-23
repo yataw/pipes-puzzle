@@ -1,5 +1,6 @@
 import {WebSocketTransport} from 'api/puzzle/websocket-transport';
 import {PuzzleField, Transport} from './types';
+import {flatten} from 'lodash';
 
 const getTransport = (): Transport => new WebSocketTransport();
 
@@ -60,9 +61,9 @@ export class Puzzle {
         return [map.length, map[0].length];
     }
 
-    async rotate(x: number, y: number): Promise<string> {
+    async rotate(...dots: NonEmptyArray<[number,number]>): Promise<string> {
         return this.addToQueue(() => {
-            return this.transport.fetch('rotate', x, y);
+            return this.transport.fetch('rotate', ...flatten(dots));
         });
     }
 

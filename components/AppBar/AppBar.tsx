@@ -4,21 +4,14 @@ import {makeStyles, Theme, createStyles} from '@material-ui/core/styles';
 import {
     Drawer,
     AppBar as MaterialAppBar,
-    List,
     Typography,
     Divider,
     IconButton,
-    ListItem,
-    ListItemIcon,
-    ListItemText,
 } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import Image from 'next/image';
 import {Footer} from 'components/Footer';
-import {routes} from 'router';
-import {useRouter} from 'next/router';
 import {ChooseLevel} from 'components/ChooseLevel';
 import {AppBarMenuItems} from 'components/AppBar/AppBarMenuItems';
 

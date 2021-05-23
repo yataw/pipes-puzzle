@@ -1,14 +1,14 @@
 import styles from './ChooseLevel.module.scss';
-import React, {FC, useCallback, useState} from 'react';
+import React, {FC, useCallback, useEffect, useState} from 'react';
 import {Fade, IconButton, TextField} from '@material-ui/core';
 import Image from 'next/image';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import {useDispatch, useSelector} from 'react-redux';
 import {pageSelector} from 'selectors/page';
-import {inRange} from 'lodash';
 import {MAX_LEVEL, MIN_LEVEL} from 'globals/globals';
 import {useSnackbar} from 'notistack';
 import {setLevel} from 'actions/page';
+import {isValidLevel} from 'utils/is-valid-level';
 
 type Props = {};
 
@@ -19,10 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-
-const isValidLevel = (level: any): level is Level => {
-    return inRange(level, MIN_LEVEL, MAX_LEVEL + 1);
-};
 
 export const ChooseLevel: FC<Props> = () => {
     const {level} = useSelector(pageSelector);
@@ -44,6 +40,10 @@ export const ChooseLevel: FC<Props> = () => {
         dispatch(setLevel(currentLevel));
         enqueueSnackbar(`Current level is ${currentLevel}`, {variant: 'info', preventDuplicate: true});
     }, [dispatch, currentLevel]);
+
+    useEffect(() => {
+        setCurrentLevel(level);
+    }, [level]);
 
     return (
         <div className={styles.level}>

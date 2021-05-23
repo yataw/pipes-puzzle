@@ -10,3 +10,6 @@ type ToDo = any;
 type NonEmptyArray<T> = [T, ...T[]];
 
 type Level = 1 | 2 | 3 | 4 | 5 | 6;
+
+// to types for this module :(
+declare module 'react-console-emulator';

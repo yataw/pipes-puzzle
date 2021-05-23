@@ -4,7 +4,7 @@ import {Layout} from 'components/Layout';
 import 'public/styles/global.scss';
 import {ThemeProvider} from '@material-ui/styles';
 import {theme} from 'utils/theme';
-import React, {FC, useEffect, useLayoutEffect, useRef} from 'react';
+import React, {FC, useLayoutEffect, useRef} from 'react';
 import {AppContext, AppContextType} from 'components/AppContext';
 import {Puzzle} from 'api/puzzle';
 import {SnackbarProvider} from 'notistack';
@@ -34,8 +34,12 @@ const WrappedApp: FC<AppProps> = (...props: ToDo) => {
         </AppContext.Provider>
     );
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         removeMaterialStyles();
+
+        // initialise api before all other effects
+        ctx.current.puzzleApi.init();
+        ctx.current.puzzleApi.setLevel(1);
     }, []);
 
 

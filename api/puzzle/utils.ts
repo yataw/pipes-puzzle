@@ -17,7 +17,7 @@ export const scanMap = (api: Puzzle) => async (): Promise<PuzzleField[][][]> => 
                 const x = j;
 
                 const snapshot = await api.mapParsed();
-                await api.rotate(x, y);
+                await api.rotate([x, y]);
                 snapshots.push(snapshot);
             }
             line.push(snapshots);
@@ -26,4 +26,4 @@ export const scanMap = (api: Puzzle) => async (): Promise<PuzzleField[][][]> => 
     }
 
     return result;
-}
+};

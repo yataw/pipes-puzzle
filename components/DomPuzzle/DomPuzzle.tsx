@@ -1,6 +1,8 @@
 import React, {CSSProperties, FC} from 'react';
 import styles from './DomPuzzle.module.scss';
 import {inRange, isEqual} from 'lodash';
+import clsx from 'clsx';
+import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 
 export type DataSet = {
     elements: string[][];
@@ -15,6 +17,7 @@ export type DataSet = {
 
 type Props = {
     dataSet: DataSet | NonEmptyArray<DataSet>;
+    className?: string;
 };
 
 const defaultProps: Omit<Required<DataSet>, 'elements' | 'focusOn'> = {
@@ -65,11 +68,11 @@ const getElementStyle = (
     return style;
 };
 
-export const DomPuzzle: FC<Props> = ({dataSet}) => {
+export const DomPuzzle: FC<Props> = ({dataSet, className}) => {
     const dataSets = Array.isArray(dataSet) ? dataSet : [dataSet];
 
     return (
-        <div className={styles.root}>
+        <div className={clsx(styles.root, className)}>
             <div className={styles.puzzle}>
                 {
                     dataSets.map((set, setN) => {

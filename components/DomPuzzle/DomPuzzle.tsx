@@ -2,7 +2,6 @@ import React, {CSSProperties, FC} from 'react';
 import styles from './DomPuzzle.module.scss';
 import {inRange, isEqual} from 'lodash';
 import clsx from 'clsx';
-import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 
 export type DataSet = {
     elements: string[][];

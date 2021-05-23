@@ -1,5 +1,5 @@
 import {WebSocketTransport} from 'api/puzzle/websocket-transport';
-import {PuzzleField, Transport} from './types';
+import {PuzzleFieldRaw, Transport} from './types';
 import {flatten} from 'lodash';
 
 const getTransport = (): Transport => new WebSocketTransport();
@@ -36,7 +36,7 @@ export class Puzzle {
         });
     }
 
-    async mapParsed(): Promise<PuzzleField> {
+    async mapParsed(): Promise<PuzzleFieldRaw> {
         return this.addToQueue(async () => {
             const raw = await this.transport.fetch<string>('map');
             const lines = raw.split(/\r?\n/);

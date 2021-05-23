@@ -1,10 +1,10 @@
 import {Reducer} from 'store';
 import {SCAN_REQUEST, SCAN_WAIT, SCAN_SUCCESS} from 'actions/action-types';
-import {PuzzleField} from 'api/puzzle/types';
+import {PuzzleFieldRaw} from 'api/puzzle/types';
 
 type ExploreState = {
     scanning: boolean;
-    snapshots: PuzzleField[][][];
+    snapshots: PuzzleFieldRaw[][][];
 };
 
 const initialState: ExploreState = {

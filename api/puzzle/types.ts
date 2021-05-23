@@ -6,4 +6,4 @@ export type Transport = {
     fetch<T extends any>(path: string, ...args: FetchArg[]): Promise<T>;
 };
 
-export type PuzzleField = string[][];
+export type PuzzleFieldRaw = string[][];

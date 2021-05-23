@@ -1,9 +1,9 @@
 import {Puzzle} from 'api/puzzle/puzzle';
-import {PuzzleField} from './types';
+import {PuzzleFieldRaw} from './types';
 
 const TOTAL_ROTATIONS = 4 as const;
 
-export const scanMap = (api: Puzzle) => async (): Promise<PuzzleField[][][]> => {
+export const scanMap = (api: Puzzle) => async (): Promise<PuzzleFieldRaw[][][]> => {
     const result = [];
     const [maxY, maxX] = await api.UNSAFE_getSize();
 

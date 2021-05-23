@@ -1,11 +1,11 @@
 import {SCAN_REQUEST, SCAN_WAIT, SCAN_SUCCESS} from './action-types';
-import {PuzzleField} from 'api/puzzle/types';
+import {PuzzleFieldRaw} from 'api/puzzle/types';
 import {Thunk} from 'store/index';
 import {scanMap} from 'api/puzzle/utils';
 
 export const scanRequest = () => ({type: SCAN_REQUEST});
 export const scanWait = () => ({type: SCAN_WAIT});
-export const scanSuccess = (payload: PuzzleField[][][]) => ({type: SCAN_SUCCESS, payload});
+export const scanSuccess = (payload: PuzzleFieldRaw[][][]) => ({type: SCAN_SUCCESS, payload});
 
 export const scan = (): Thunk<void> => async (dispatch, _, {puzzleApi}) => {
     dispatch(scanRequest());

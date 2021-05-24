@@ -17,17 +17,17 @@ type MenuItem = {
 const menuItems: MenuItem[] = [
     {
         text: 'CLI mode',
-        imageUrl: '/images/terminal.svg',
+        imageUrl: '/pipes-puzzle/images/terminal.svg',
         path: routes.CLI,
     },
     {
         text: 'GUI mode',
-        imageUrl: '/images/game-controller.svg',
+        imageUrl: '/pipes-puzzle/images/game-controller.svg',
         path: routes.GUI,
     },
     {
         text: 'Explore',
-        imageUrl: '/images/search.svg',
+        imageUrl: '/pipes-puzzle/images/search.svg',
         path: routes.Explore,
     },
 ];

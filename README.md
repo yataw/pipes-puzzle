@@ -8,7 +8,7 @@
 ## How to start
 - npm i
 - npm run dev
-- open http://localhost:3000
+- open http://localhost:3000/pipes-puzzle
 
 ## Architecture and design
 - Puzzle class handles API requests to the server. The class contains Transport instance,

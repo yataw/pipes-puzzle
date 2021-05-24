@@ -52,7 +52,7 @@ export const ChooseLevel: FC<Props> = () => {
 
             <Fade in={currentLevel !== level}>
                 <IconButton classes={{root: classes.btn}} onClick={handleButtonClick}>
-                    <Image src={'/images/sync.svg'} width={20} height={20} />
+                    <Image src={'/pipes-puzzle/images/sync.svg'} width={20} height={20} />
                 </IconButton>
             </Fade>
 

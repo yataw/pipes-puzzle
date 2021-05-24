@@ -48,7 +48,7 @@ export const MenuButton = () => {
         <div className={classes.root}>
             <div>
                 <IconButton onClick={handleBtnClick} ref={btnRef}>
-                    <Image src={'/images/menu.svg'} width={20} height={20} />
+                    <Image src={'/pipes-puzzle/images/menu.svg'} width={20} height={20} />
                 </IconButton>
 
                 <Popper open={open} anchorEl={btnRef.current} transition>

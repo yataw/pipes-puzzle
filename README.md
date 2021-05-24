@@ -1,5 +1,5 @@
 ## Live demo
-(TODO, will be deployed to yataw.com) 
+https://yataw.com/pipes-puzzle
 
 ## Level passwords
 - JustWarmingUp
